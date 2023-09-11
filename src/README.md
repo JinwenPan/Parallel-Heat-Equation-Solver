@@ -1,7 +1,5 @@
 # MPI Heat Equation Solver, Efficient Programming of Multicore Processors and Supercomputers, SS23, TUM
 
-## Group 7: Jingtian Zhao, Mingshuai Li, and Jinwen Pan
-
 ## 1. Build
 With the default modules already loaded on the login node of SuperMUC-NG, just type `$ make` to compile the program. 
 
