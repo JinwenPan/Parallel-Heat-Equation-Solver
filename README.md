@@ -7,9 +7,9 @@ This repository contains a parallel implementation of a 2D [heat equation](https
 - [Features](#features)
 - [Dependencies](#dependencies)
 - [Compilation](#compilation)
-- [Usage](#usage)
 - [Configuration](#configuration)
-- [Performance Considerations](#performance-considerations)
+- [Usage](#usage)
+- [Documentation](#documentation)
 
 ## Introduction
 The heat equation solver uses the Jacobi iterative method, a popular numerical algorithm for solving partial differential equations. To accelerate the computation, we have implemented parallelization techniques using MPI (Message Passing Interface) and hybrid MPI+OpenMP approaches. This allows efficient utilization of multi-core and distributed computing environments.
