@@ -1,6 +1,6 @@
 # Parallel Heat Equation Solver
 
-This repository contains a parallel implementation of a heat equation solver using the Jacobi method. The solver supports various parallelization strategies involving MPI and OpenMP. It is designed to be flexible, allowing both blocking and non-blocking communication approaches for improved performance across different architectures.
+This repository contains a parallel implementation of a 2D [heat equation](https://en.wikipedia.org/wiki/Heat_equation) solver using the [Jacobi method](https://en.wikipedia.org/wiki/Jacobi_method). The solver supports various parallelization strategies involving MPI and OpenMP. It is designed to be flexible, allowing both blocking and non-blocking communication approaches for improved performance across different architectures.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -38,10 +38,10 @@ Ensure you have these installed on your system before compiling the solver.
    cd src
    make
    ```
-   This will generate the executable for the solver.
+   This will generate the executable `heat` for the solver in `/src`.
 
 ## Configuration
-You can adjust the domain resolution, number of iterations, parallelization strategy, and other parameters by modifying `test.dat`. Details on the configuration options are also provided in `test.dat`.
+You can adjust the domain resolution, number of iterations, parallelization strategy, and other parameters by modifying `/src/test.dat`. Details on the configuration options are also provided there.
 
 ## Usage
 The solver can be executed as follows:
@@ -49,9 +49,7 @@ The solver can be executed as follows:
 export OMP_NUM_THREADS=<number_of_threads>
 mpiexec -n <number_of_processes> ./heat test.dat <number_of_processes_in_ydirection> <number_of_processes_in_xdirection>
 ```
-A SLURM script `job.scp` is also provided for running the solver on a cluster. 
+An example SLURM script `/src/job.scp` we use on the [SuperMUC-NG](https://doku.lrz.de/supermuc-ng-10745965.html) system at LRZ is also provided for running the solver on a cluster. 
 
-## Performance Considerations
-- **Blocking vs. Non-Blocking**: Using non-blocking communication can significantly improve performance on systems where communication overhead is a bottleneck. However, for smaller problem sizes, the overhead of setting up non-blocking communication might not be worth it.
-- **Load Balancing**: Ensure a balanced workload distribution across all processes for optimal performance.
-- **Hybrid Parallelism**: The hybrid MPI + OpenMP approach is beneficial for modern multi-core systems, reducing the number of MPI processes and efficiently utilizing shared memory.
+## Documentation
+The development process and experimental analysis of this solver are provided in the form of a lab report `/report/Heat_Report.pdf` from a course at the Technical University of Munich.
